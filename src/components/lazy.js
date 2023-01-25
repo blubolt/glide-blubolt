@@ -26,6 +26,12 @@ export default function (Glide, Components, Events) {
     withinView () {
       let rect = this._wrapper.getBoundingClientRect()
 
+      alert('rect.bottom is: ' + rect.bottom);
+      alert('rect.right is: ' + rect.right);
+      alert('rect.top is: ' + rect.top);
+      alert('rect.left is: ' + rect.left);
+      alert('lazyScrollThreshold is: ' + settings.lazyScrollThreshold);
+
       if (
         rect.bottom > 0 &&
         rect.right > 0 &&

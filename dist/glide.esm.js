@@ -2737,6 +2737,12 @@ function Lazy (Glide, Components, Events) {
     withinView: function withinView() {
       var rect = this._wrapper.getBoundingClientRect();
 
+      alert('rect.bottom is: ' + rect.bottom);
+      alert('rect.right is: ' + rect.right);
+      alert('rect.top is: ' + rect.top);
+      alert('rect.left is: ' + rect.left);
+      alert('lazyScrollThreshold is: ' + settings.lazyScrollThreshold);
+
       if (rect.bottom > 0 && rect.right > 0 && rect.top <= (window.innerHeight * settings.lazyScrollThreshold || document.documentElement.clientHeight) * settings.lazyScrollThreshold && rect.left <= (window.innerWidth * settings.lazyScrollThreshold || document.documentElement.clientWidth * settings.lazyScrollThreshold)) {
         this.lazyLoad();
       }
