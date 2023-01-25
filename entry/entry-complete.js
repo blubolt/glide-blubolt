@@ -13,6 +13,7 @@ import Resize from '../src/components/resize'
 import Direction from '../src/components/direction'
 import Translate from '../src/components/translate'
 import Transition from '../src/components/transition'
+import Lazy from '../src/components/lazy'
 
 // Optional components
 import Swipe from '../src/components/swipe'
@@ -45,7 +46,8 @@ const COMPONENTS = {
   Controls,
   Keyboard,
   Autoplay,
-  Breakpoints
+  Breakpoints,
+  Lazy
 }
 
 export default class Glide extends Core {
