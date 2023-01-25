@@ -2741,7 +2741,10 @@ function Lazy (Glide, Components, Events) {
       alert('rect.right is: ' + rect.right);
       alert('rect.top is: ' + rect.top);
       alert('rect.left is: ' + rect.left);
-      alert('lazyScrollThreshold is: ' + settings.lazyScrollThreshold);
+      alert('lazyScrollThreshold is: ' + settings.lazyScrollThreshold); // 628.8984375 > 0
+      // 1032 > 0
+      // 193.3984375 <= (789 * 2 || 789) * 2
+      // 16 <= (1048 * 2 || 1048 * 2)
 
       if (rect.bottom > 0 && rect.right > 0 && rect.top <= (window.innerHeight * settings.lazyScrollThreshold || document.documentElement.clientHeight) * settings.lazyScrollThreshold && rect.left <= (window.innerWidth * settings.lazyScrollThreshold || document.documentElement.clientWidth * settings.lazyScrollThreshold)) {
         this.lazyLoad();
@@ -2778,11 +2781,15 @@ function Lazy (Glide, Components, Events) {
     }
   };
   Events.on(['mount.after'], function () {
+    alert('mount.after');
+
     if (settings.lazy) {
       Lazy.withinView();
     }
   });
   Events.on(['move.after'], throttle(function () {
+    alert('move.after');
+
     if (settings.lazy && inView) {
       Lazy.lazyLoad();
     } else if (settings.lazy) {
@@ -2790,6 +2797,8 @@ function Lazy (Glide, Components, Events) {
     }
   }, 100));
   document.addEventListener('scroll', throttle(function () {
+    alert('scroll.after');
+
     if (settings.lazy && !inView) {
       Lazy.withinView();
     }
